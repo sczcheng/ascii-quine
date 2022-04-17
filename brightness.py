@@ -35,6 +35,7 @@ def createdict() -> dict[str, float]:
 
 if __name__ == '__main__':
     d = list(createdict().items())
+    print(createdict())
     d.sort(key=lambda t: t[1])
     for key, val in d:
         print(key, val)
