@@ -6,6 +6,8 @@ from flask import Flask, render_template, request, redirect, url_for, abort, \
     send_from_directory
 from werkzeug.utils import secure_filename
 
+import asciiart
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -25,6 +27,7 @@ def picture_render():
     else:
         filename='boop'
     os.makedirs("uploads",exist_ok=True)
-    uploaded_file.save(os.path.join("uploads",filename))
-    #santifunction(filename)
-    return render_template('rendered.html', santi='blah blah blah')
+    fullfilepath = os.path.join("uploads",filename)
+    uploaded_file.save(fullfilepath)
+    resultstr = asciiart.asciiquine(fullfilepath, 100, reverse=False)
+    return render_template('rendered.html', santi=resultstr)
