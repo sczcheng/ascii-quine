@@ -3,7 +3,7 @@ python3 asciiart.py [-h] [--reverse] [--quine] imgpath width
 generate ascii art that looks like image at imgpath to standard output
 """
 
-from brightness import createdict
+#from brightness import createdict
 
 import PIL.Image
 import PIL.ImageEnhance
